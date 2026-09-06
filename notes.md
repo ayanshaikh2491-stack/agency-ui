@@ -14,3 +14,19 @@ Learnings:
 - Vite 8.2.2 + @tailwindcss/vite requires default import, not named import
 - npm run build (tsc -b && vite build) completes successfully
 - Project structure is ready for shadcn/ui component implementation
+## Iteration 2 — ? success
+
+Summary: Built complete agency dashboard — all 5 sections + nav + dark mode. Build passes, Playwright verified all 7 tabs render.
+
+Changes:
+- TaskBoard.tsx — Kanban (Backlog/In Progress/Done, move tasks, priority badges)
+- TeamMembers.tsx — 5 members, status dots, avatar initials
+- ClientList.tsx — table with 5 clients, sector, revenue, status badges
+- Analytics.tsx — 4 stat cards + 12-month bar chart
+- Calendar.tsx — current month grid, 3 events, today highlight
+- App.tsx — sidebar nav (6 tabs), dark mode toggle, dashboard overview
+
+Learnings:
+- Tailwind JIT dynamic class names (bg-${color}-100) nahi chalte — lookup objects chahiye
+- npm run build (tsc strict) — unused imports/vars fail dete hain, clean rakhna padta hai
+- Playwright headless-shell screenshots se visual verification possible
