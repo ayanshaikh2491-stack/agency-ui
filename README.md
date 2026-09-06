@@ -1,32 +1,71 @@
-# React + TypeScript + Vite
+# Agency UI — Agency Management Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A modern, responsive agency management dashboard with 6 sections, built with **React 19 + TypeScript + Tailwind CSS v4 + Vite**.
 
-Currently, two official plugins are available:
+> Built autonomously using [loop-energy](https://github.com/ayanshaikh2491-stack/loop-energy) — an autonomous agent loop framework with 3-layer maker-checker verification.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
 
-## React Compiler
+| Section | What's inside |
+|---|---|
+| **📊 Dashboard** | 4 stat cards with progress bars, recent activity feed, quick actions |
+| **📋 Tasks** | Interactive Kanban board — Backlog → In Progress → Done, priority badges, move tasks with one click |
+| **👥 Team** | Team member cards with avatars, online/away/offline status, task counts |
+| **🤝 Clients** | Client table with sector, revenue, growth indicators, status badges |
+| **📈 Analytics** | 4 stat cards + 12-month gradient bar chart |
+| **📅 Calendar** | Current month grid with events, today highlighted, color legend |
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Plus:
+- 🌙 **Dark mode** — full dark theme via Tailwind v4 OKLCH colors
+- 📱 **Responsive** — mobile to desktop (1/2/3/4 column grids)
+- 🔍 **Search header** with user greeting
+- ⚡ **Inter font**, soft shadows, smooth hover transitions
 
-## Expanding the Oxlint configuration
+## 🖼️ Screenshots
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+Dashboard | Task Board
+:---: | :---:
+![Dashboard](final-dashboard.png) | ![Sidebar](final-sidebar.png)
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+## 🚀 Quick Start
+
+```bash
+git clone https://github.com/ayanshaikh2491-stack/agency-ui.git
+cd agency-ui
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Open **http://localhost:5173** 🎉
+
+## 🛠️ Build
+
+```bash
+npm run build    # tsc + vite build (passes clean)
+npm run preview # preview the production build
+```
+
+## 🧱 Tech Stack
+
+- **React 19** + TypeScript (strict)
+- **Tailwind CSS v4** (`@import "tailwindcss"` + `@custom-variant dark`)
+- **Vite 8** with `@tailwindcss/vite` plugin
+- Zero UI libraries — pure Tailwind components
+
+## 📁 Structure
+
+```
+src/
+├── App.tsx                  # Layout: sidebar + header + section router
+├── index.css                # Tailwind v4 import + dark variant
+└── components/
+    ├── TaskBoard.tsx        # Kanban board
+    ├── TeamMembers.tsx      # Team grid
+    ├── ClientList.tsx       # Client table
+    ├── Analytics.tsx        # Stats + bar chart
+    └── Calendar.tsx         # Month calendar
+```
+
+## 📜 License
+
+MIT
