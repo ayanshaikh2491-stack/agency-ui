@@ -30,3 +30,14 @@ Learnings:
 - Tailwind JIT dynamic class names (bg-${color}-100) nahi chalte — lookup objects chahiye
 - npm run build (tsc strict) — unused imports/vars fail dete hain, clean rakhna padta hai
 - Playwright headless-shell screenshots se visual verification possible
+
+## Iteration 3 — ? success (bug fix)
+
+Summary: User reported UI was plain (no colors/layout). Root cause: Tailwind v4 was installed but code used v3 syntax (@tailwind directives + tailwind.config.js). Fixed: @import "tailwindcss" + @custom-variant dark, removed v3 config + App.css.
+
+Verification: CSS bundle 5KB -> 19KB, computed sidebar bg = oklch gray-900 (Tailwind applied), build passes.
+
+Learnings:
+- Tailwind v4 breaking change: no @tailwind directives, no config file needed, plugin-only
+- Visual bug needs COMPUTED-STYLE check, not just build check — build passed even while UI was broken
+- Dark mode in v4: @custom-variant dark (&:where(.dark, .dark *)) in CSS
